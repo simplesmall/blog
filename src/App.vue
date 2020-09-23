@@ -1,23 +1,30 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <MainTabs></MainTabs>
+    <ArticleContent>
     <router-view/>
+    </ArticleContent>
   </div>
 </template>
 
 <script>
+import MainTabs from './components/header/MainTabs'
+import ArticleContent from './components/article/ArticleContent'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    MainTabs,
+    ArticleContent
+  }
 }
 </script>
 
 <style>
 #app {
+  height: calc(100vh - 16px);
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: -8px;
 }
 </style>
