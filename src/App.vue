@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <MainTabs></MainTabs>
-    <ArticleContent>
     <router-view/>
-    </ArticleContent>
   </div>
 </template>
 

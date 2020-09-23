@@ -1,11 +1,11 @@
 <template>
 <div>
-  <ArticleContent>
+  <ArticleContent v-for="(item,index) in itemList" :key="index">
     <div class="inline">
-      <div class="snap-img"></div>
+      <div class="snap-img">{{item.snapImg}}</div>
       <div class="content">
-        <div class="summary">简单叙述 </div>
-        <div class="show-data">评论点赞</div>
+        <div class="summary">{{item.article}}--{{item.summary}}</div>
+        <div class="show-data">评论:{{item.comment}}  点赞:{{item.admire}} 收藏 : {{item.collection}}</div>
       </div>
     </div>
   </ArticleContent>
@@ -17,6 +17,28 @@
 import ArticleContent from '../../components/article/ArticleContent'
 export default {
   name: 'SkillIndex',
+  data () {
+    return {
+      itemList: [
+        {
+          snapImg: 'http://www.sdohds.com/sd.jpg',
+          article: '文章标题',
+          summary: '这是一段简单的文章叙述',
+          comment: 12,
+          admire: 22,
+          collection: 4
+        },
+        {
+          snapImg: 'http://www.sdohds.com/sd.jpg',
+          article: '文章标题',
+          summary: '这是一段简单的文章叙述',
+          comment: 12,
+          admire: 22,
+          collection: 4
+        }
+      ]
+    }
+  },
   components: {
     ArticleContent
   }
