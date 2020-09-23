@@ -11,10 +11,12 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // axios
 import axios from 'axios'
+import fetch from './utils/httpUtil.js'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(axios)
+Vue.prototype.$fetch = fetch
 
 /* eslint-disable no-new */
 new Vue({
