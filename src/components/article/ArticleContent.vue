@@ -14,5 +14,6 @@ export default {
 .box-card{
   width: 98%;
   margin: 10px auto;
+  max-width: 1400px;
 }
 </style>

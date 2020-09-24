@@ -1,9 +1,13 @@
 <template>
   <div>
     <ArticleContent v-for="(item,index) in itemList" :key="index">
+      <!-- 行内显示消息简介卡片-->
       <div class="inline">
-        <div class="snap-img" :style="setBgImg(item.snapImg)"></div>
+        <!--  缩略图   -->
+        <div class="snap-img" :style="setBgImg(item.snapImg)" @click="openDetail(item.id)"></div>
+        <!--   右侧内容展示     -->
         <div class="content">
+          <!-- 文字简介-->
           <div class="summary">
           <span style="display: block;text-align: left;font-size: 20px;font-weight: bold">
             {{item.article}}
@@ -16,11 +20,12 @@
           </span>
             {{item.summary}}
           </div>
+          <!--评论点赞收藏数据展示-->
           <div class="show-data">评论:{{item.comment}} 点赞:{{item.admire}} 收藏 : {{item.collection}}</div>
         </div>
       </div>
     </ArticleContent>
-    <ArticleContent></ArticleContent>
+    <div class="footer"></div>
   </div>
 </template>
 
@@ -33,6 +38,7 @@ export default {
     return {
       itemList: [
         {
+          id: 2,
           snapImg: 'https://dpic.tiankong.com/su/2b/QJ9102388384.jpg',
           article: '自带简历的一般都不太靠谱',
           summary: '首先，提前要求自带简历的一般都不太靠谱，特别是小公司要求自带简历，一般都是hr不专业，不想提前把你的简历打印出来，或者说不想为了你浪费几张A4纸，所以这种公司可以直接pass了，除非你特别缺offer，生存都成困难了。\n' +
@@ -58,6 +64,7 @@ export default {
           ]
         },
         {
+          id: 5,
           snapImg: 'https://dpic.tiankong.com/ur/x7/QJ8718285477.jpg',
           article: '文章标题',
           summary: '这是一段简单的文章叙述',
@@ -76,6 +83,7 @@ export default {
           ]
         },
         {
+          id: 6,
           snapImg: '',
           article: '文章标题',
           summary: '这是一段简单的文章叙述',
@@ -97,10 +105,17 @@ export default {
     }
   },
   methods: {
+    // 打开文章详情页
+    openDetail (id) {
+      console.log('id is:', id)
+      // this.$router.push('/skill/detail/' + id)
+      this.$router.push('/skill/test')
+    },
+    // 设置缩略图背景
     setBgImg (img) {
       const commonCSS = ');background-repeat: no-repeat;\n' +
           '    background-size: 100% 100%;\n' +
-          '    -moz-background-size: 100% 100%;'
+          '    -moz-background-size: 100% 100%;cursor:pointer;'
       const imgUrl = img || 'https://dpic.tiankong.com/sg/jd/QJ6411220960.jpg'
       return 'background:url(' + imgUrl + commonCSS
     }
@@ -112,6 +127,13 @@ export default {
 </script>
 
 <style scoped>
+  .footer{
+    width: 100%;
+    height: 100px;
+    /*position: fixed;*/
+    margin-bottom: 2px;
+    background: cyan;
+  }
   .tags {
     float: right;
     width: 300px;
