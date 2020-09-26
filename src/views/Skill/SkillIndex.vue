@@ -1,6 +1,8 @@
 <template>
   <div>
     <ArticleContent v-for="(item,index) in itemList" :key="index">
+      <router-view></router-view>
+
       <!-- 行内显示消息简介卡片-->
       <div class="inline">
         <!--  缩略图   -->
