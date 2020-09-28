@@ -29,16 +29,16 @@ export default new Router({
       component: SkillIndex,
       children: [
         {
-          path: 'detail/:id',
-          name: 'ArticleDetail',
-          component: ArticleDetail
-        },
-        {
           path: 'test',
           name: 'LifeIndex',
           component: LifeIndex
         }
       ]
+    },
+    {
+      path: '/skill/detail/:id',
+      name: 'ArticleDetail',
+      component: ArticleDetail
     },
     {
       path: '/life',

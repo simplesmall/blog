@@ -1,8 +1,6 @@
 <template>
   <div>
     <ArticleContent v-for="(item,index) in itemList" :key="index">
-      <router-view></router-view>
-
       <!-- 行内显示消息简介卡片-->
       <div class="inline">
         <!--  缩略图   -->
@@ -110,8 +108,8 @@ export default {
     // 打开文章详情页
     openDetail (id) {
       console.log('id is:', id)
-      // this.$router.push('/skill/detail/' + id)
-      this.$router.push('/skill/test')
+      this.$router.push('/skill/detail/' + id)
+      // this.$router.push('/skill/test')
     },
     // 设置缩略图背景
     setBgImg (img) {
